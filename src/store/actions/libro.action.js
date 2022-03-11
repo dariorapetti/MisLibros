@@ -8,6 +8,7 @@ export const AGREGAR_FAVORITOS = 'AGREGAR_FAVORITOS';
 import { fetchLibros, insertLibro, updateLibroFavoritos } from '../../db';
 
 export const agregarLibro = (idGenero, titulo, autor, imagen) => {
+    //console.warn({idGenero, titulo, autor, imagen});
     return async dispatch => {
 
         const filename = imagen.split('/').pop();
@@ -25,7 +26,7 @@ export const agregarLibro = (idGenero, titulo, autor, imagen) => {
                     idGenero,
                     titulo,
                     autor,
-                    image: Path
+                    imagen: Path
                 }
             });
         } catch (error) {

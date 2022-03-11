@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { View, Text, StyleSheet, ScrollView, Button, TextInput } from 'react-native';
+import { View, Text, ScrollView, Button, TextInput } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { agregarLibro } from '../../store/actions/libro.action';
 import ImageSelector from '../../components/ImageSelector';
@@ -44,14 +44,6 @@ const NuevoLibro = ({ navigation }) => {
             </View>
         </ScrollView>
     )
-
-    return (
-            <ScrollView>
-                <View style={styles.container}>
-                    <Text style={styles.label}>Nuevo libro</Text>
-                </View>
-            </ScrollView>
-        )
 }
 
 export default NuevoLibro;

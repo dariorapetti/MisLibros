@@ -24,7 +24,7 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 libros: action.payload.map(libro => {
-                    return new Libro(libro.id, libro.idGenero, libro.titulo, libro.imagen, libro.favorito, libro.prestado);
+                    return new Libro(libro.id, libro.idGenero, libro.genero, libro.titulo, libro.autor, libro.imagen, libro.favorito, libro.prestado);
                 }),
                 selected: null
             }

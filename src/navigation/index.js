@@ -8,8 +8,8 @@ const AppNavigation = () => {
     const userId = useSelector(state => state.auth.userId);
     return (
         <NavigationContainer>
-            {/* <BottomTabsNavigator /> */}
-            { userId ? <BottomTabsNavigator /> : <AuthStackNavigation />}        
+            <BottomTabsNavigator />
+            {/* { userId ? <BottomTabsNavigator /> : <AuthStackNavigation />}         */}
         </NavigationContainer>
     );
 };

@@ -9,8 +9,6 @@ export const init = () => {
             tx.executeSql('CREATE TABLE IF NOT EXISTS libro (id INTEGER PRIMARY KEY NOT NULL, idGenero INT NOT NULL, titulo TEXT NOT NULL, autor TEXT NOT NULL, imagen TEXT DEFAULT NULL, favorito TEXT DEFAULT NULL, prestado TEXT DEFAULT NULL, FOREIGN KEY (idGenero) REFERENCES genero (id) ON DELETE CASCADE ON UPDATE NO ACTION)', [], () => { resolve() }, (_, err) => { reject(err);});
 
             tx.executeSql("INSERT INTO genero (nombre) VALUES ('Ciencia ficción'), ('Cuento'), ('Drama'), ('Novela')", [], () => { resolve() }, (_, err) => { reject(err);});
-            // tx.executeSql("TRUNCATE TABLE libro", [], () => { resolve() }, (_, err) => { reject(err);});
-            // tx.executeSql("INSERT INTO libro (idGenero, titulo, autor, imagen) VALUES (1, 'La Ilíada', 'Homero', ''), (3, 'Infierno', 'Dan Brown', '')", [], () => { resolve() }, (_, err) => { reject(err);});
         });
     });
 
@@ -34,7 +32,7 @@ export const insertLibro = (idGenero, titulo, autor, imagen) => {
 export const fetchLibros = () => {
     const promise = new Promise((resolve, reject) => {
         db.transaction((tx) => {
-            tx.executeSql("SELECT l.*, g.nombre AS genero FROM libro l INNER JOIN genero g ON l.idGenero = g.id", 
+            tx.executeSql("SELECT l.id, l.idGenero, g.nombre AS genero, l.titulo, l.autor, l.imagen, l.favorito, l.prestado FROM libro l INNER JOIN genero g ON l.idGenero = g.id", 
                 [], 
                 (_, result) => { 
                     let data = [];

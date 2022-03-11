@@ -1,7 +1,8 @@
 class Libro {
-    constructor (id, idCategoria, titulo, autor, imagen, favorito = 0, prestado = 0){
+    constructor (id, idGenero, genero, titulo, autor, imagen, favorito = 0, prestado = 0){
         this.id = id.toString();
-        this.idCategoria = idCategoria;
+        this.idGenero = idGenero;
+        this.genero = genero;
         this.titulo = titulo;
         this.autor = autor;
         this.imagen = imagen;
